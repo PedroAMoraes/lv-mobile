@@ -17,6 +17,8 @@
         <ListView
             android:id="@+id/lsvClientes"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:backgroundTintMode="add"
+            android:dividerHeight="2sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

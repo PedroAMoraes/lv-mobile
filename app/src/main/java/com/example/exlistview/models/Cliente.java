@@ -17,9 +17,9 @@ public class Cliente {
     @Override
     public String toString() {
         return
-                "\nID:: " + (codigo == null ? " " : codigo) +
-                "\n\tNome:" + (nome.isEmpty() ? "N/A" : nome)+
-                "\n\tEmail: " + (email.isEmpty() ? "N/A" : email) + "\n";
+                //"\nID:: " + (codigo == null ? " " : codigo) +
+                (nome.isEmpty() ? "SEM NOME("+codigo+")" : nome.toUpperCase());
+                //"\n\tEmail: " + (email.isEmpty() ? "N/A" : email) + "\n";
     }
 
     public Integer getCodigo() {

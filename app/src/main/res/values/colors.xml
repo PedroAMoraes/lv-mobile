@@ -3,7 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background">#FFFFFFFF</color>
-    <color name="appBar">#FFFFFFFF</color>
-    <color name="botao_ativado">#FFFFFFFF</color>
-    <color name="botao_desativado">#FFFFFFFF</color>
+    <color name="appBar">#683535</color>
+    <color name="botao_ativado">#0995A4</color>
+    <color name="botao_desativado">#DB0B0B</color>
+    <color name="texto">#000000</color>
+    <color name="texto_claro">#FFFFFF</color>
 </resources>

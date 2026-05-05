@@ -25,7 +25,7 @@ import com.example.exlistview.models.Cliente;
 
 public class ManutencaoActivity extends AppCompatActivity {
     private Button btnSalvar, btnExcluir, btnSair;
-    private EditText edtCodigo, edtNome, edtEmail;
+    private EditText edtNome, edtEmail;
     private TextView txtCodigo;
     private ClienteDAO dao;
     private Cliente cliente;
@@ -40,7 +40,7 @@ public class ManutencaoActivity extends AppCompatActivity {
             return insets;
         });
 
-        edtCodigo = findViewById(R.id.edtCodigoManu);
+        //edtCodigo = findViewById(R.id.edtCodigoManu);
         edtNome = findViewById(R.id.edtNomeManu);
         edtNome.addTextChangedListener(new TextWatcher() {
             @Override
@@ -104,7 +104,7 @@ public class ManutencaoActivity extends AppCompatActivity {
         Intent it = getIntent();
         int ra = it.getIntExtra("codigo", -1);
         cliente = dao.getById(ra);
-        edtCodigo.setText(String.valueOf(cliente.getCodigo()));
+        //edtCodigo.setText(String.valueOf(cliente.getCodigo()));
         txtCodigo.setText(String.valueOf(cliente.getCodigo()));
         edtNome.setText(cliente.getNome());
         edtEmail.setText(cliente.getEmail());
@@ -118,7 +118,7 @@ public class ManutencaoActivity extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         dao.delete(cliente);
-                        edtCodigo.setEnabled(false);
+                        //edtCodigo.setEnabled(false);
                         edtNome.setEnabled(false);
                         edtEmail.setEnabled(false);
                         btnSalvar.setEnabled(false);
@@ -135,7 +135,7 @@ public class ManutencaoActivity extends AppCompatActivity {
     }
 
     public void alterar(){
-        int codigo = Integer.parseInt(edtCodigo.getText().toString());
+        int codigo = Integer.parseInt(txtCodigo.getText().toString());
         String nome = edtNome.getText().toString();
         String email = edtEmail.getText().toString();
         dao.update(new Cliente(codigo,nome,email));
