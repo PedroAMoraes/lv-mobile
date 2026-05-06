@@ -44,15 +44,12 @@ public class MainActivity extends AppCompatActivity {
         lsvClientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Cliente a = clientes.get(position);
+                Cliente c = clientes.get(position);
                 Intent it = new Intent(MainActivity.this, ManutencaoActivity.class);
-                it.putExtra("codigo",a.getCodigo());
+                it.putExtra("codigo",c.getCodigo());
                 startActivity(it);
             }
         });
-
-
-
 
     }
 

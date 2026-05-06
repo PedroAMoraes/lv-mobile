@@ -1,5 +1,7 @@
 package com.example.exlistview.models;
 
+import com.example.exlistview.dao.ClienteDAO;
+
 public class Cliente {
     private Integer codigo;
     private String nome;
@@ -18,7 +20,7 @@ public class Cliente {
     public String toString() {
         return
                 //"\nID:: " + (codigo == null ? " " : codigo) +
-                (nome.isEmpty() ? "SEM NOME("+codigo+")" : nome.toUpperCase());
+                (nome.isEmpty() ? "SEM NOME("+ codigo +")" : nome.toUpperCase());
                 //"\n\tEmail: " + (email.isEmpty() ? "N/A" : email) + "\n";
     }
 
