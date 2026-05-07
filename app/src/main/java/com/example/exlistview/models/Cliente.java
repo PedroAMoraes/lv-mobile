@@ -17,7 +17,14 @@ public class Cliente {
     @Override
     public String toString() {
         // identificar se tem ou não nome definido
-        return (nome.isEmpty() ? "<SEM NOME("+ semNome +")>" : nome);
+        if(nome.isEmpty()){
+            if(semNome == 0)
+                return "SEM NOME"; // caso seja o primeiro/unico identificado sem nome
+            // caso não seja o primeiro/unico sem nome identificadp
+            return "SEM NOME(" + semNome + ")";
+        }
+        // caso tenha nome
+        return nome;
     }
 
     public Integer getCodigo() {
