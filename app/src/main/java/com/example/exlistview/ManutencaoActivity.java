@@ -2,8 +2,10 @@ package com.example.exlistview;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -40,6 +42,7 @@ public class ManutencaoActivity extends AppCompatActivity {
             return insets;
         });
 
+        btnSalvar = findViewById(R.id.btnSalvar);
         edtNome = findViewById(R.id.edtNomeManu);
         // Reativar botão salvar quando o campo email for alterado
         edtNome.addTextChangedListener(new TextWatcher() {
@@ -77,7 +80,6 @@ public class ManutencaoActivity extends AppCompatActivity {
             }
         });
         txtCodigo = findViewById(R.id.txtCodigo);
-        btnSalvar = findViewById(R.id.btnAlterar);
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,7 +127,7 @@ public class ManutencaoActivity extends AppCompatActivity {
                         dao.delete(cliente);
                         Toast.makeText(
                                 ManutencaoActivity.this,
-                                "Aluno deletado",
+                                "Cliente deletado",
                                 LENGTH_SHORT)
                                 .show();
                         finish();
@@ -141,4 +143,5 @@ public class ManutencaoActivity extends AppCompatActivity {
         Toast.makeText(this, "Cliente atualizado!", LENGTH_SHORT).show();
         btnSalvar.setEnabled(false);
     }
+
 }
