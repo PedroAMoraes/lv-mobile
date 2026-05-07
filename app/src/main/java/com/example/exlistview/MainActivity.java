@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView lsvClientes;
     private List<Cliente> clientes = new ArrayList<>();
-
     private ClienteDAO dao;
 
     @Override

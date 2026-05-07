@@ -40,8 +40,8 @@ public class ManutencaoActivity extends AppCompatActivity {
             return insets;
         });
 
-        //edtCodigo = findViewById(R.id.edtCodigoManu);
         edtNome = findViewById(R.id.edtNomeManu);
+        // Reativar botão salvar quando o campo email for alterado
         edtNome.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -59,6 +59,7 @@ public class ManutencaoActivity extends AppCompatActivity {
             }
         });
         edtEmail = findViewById(R.id.edtEmailManu);
+        // Reativar botão salvar quando o campo email for alterado
         edtEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -94,7 +95,7 @@ public class ManutencaoActivity extends AppCompatActivity {
         btnSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sair();
+                finish();
             }
         });
         dao = new ClienteDAO(this);
@@ -102,27 +103,26 @@ public class ManutencaoActivity extends AppCompatActivity {
     }
     public void exibirCliente(){
         Intent it = getIntent();
-        int ra = it.getIntExtra("codigo", -1);
-        cliente = dao.getById(ra);
-        //edtCodigo.setText(String.valueOf(cliente.getCodigo()));
+        // pegar codigo enviado do MainActivity
+        int codigo = it.getIntExtra("codigo", -1);
+        // pegar cliente com base o codigo
+        cliente = dao.getById(codigo);
+        // exibir codigo(não alteravel), nome e email
         txtCodigo.setText(String.valueOf(cliente.getCodigo()));
         edtNome.setText(cliente.getNome());
         edtEmail.setText(cliente.getEmail());
     }
 
     public void excluir(){
+        // Caixa de confimração
         new AlertDialog.Builder(this)
                 .setTitle("Excluir cliente?")
                 .setMessage("Deseja prosseguir?")
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    // Procedimento caso clique em confirmar
                     public void onClick(DialogInterface dialog, int whichButton) {
                         dao.delete(cliente);
-                        //edtCodigo.setEnabled(false);
-                        edtNome.setEnabled(false);
-                        edtEmail.setEnabled(false);
-                        btnSalvar.setEnabled(false);
-                        btnExcluir.setEnabled(false);
                         Toast.makeText(
                                 ManutencaoActivity.this,
                                 "Aluno deletado",
@@ -131,7 +131,6 @@ public class ManutencaoActivity extends AppCompatActivity {
                         finish();
                     }})
                 .setNegativeButton(android.R.string.no, null).show();
-
     }
 
     public void alterar(){
@@ -141,9 +140,5 @@ public class ManutencaoActivity extends AppCompatActivity {
         dao.update(new Cliente(codigo,nome,email));
         Toast.makeText(this, "Cliente atualizado!", LENGTH_SHORT).show();
         btnSalvar.setEnabled(false);
-    }
-
-    public void sair(){
-        finish();
     }
 }

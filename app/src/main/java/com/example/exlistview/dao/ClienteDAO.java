@@ -47,6 +47,8 @@ public class ClienteDAO {
     }
 
     public List<Cliente> getAll(){
+        // contabilizar quantos clietes sem nome existem
+        int semNome = 0;
         List<Cliente> clientes = new ArrayList<>();
         Cursor cursor = banco.query("tbcliente", new String[]{"codigo", "nome", "email"},
                 null, null, null, null, null);
@@ -55,6 +57,8 @@ public class ClienteDAO {
             a.setCodigo(cursor.getInt(0));
             a.setNome((cursor.getString(1)));
             a.setEmail((cursor.getString(2)));
+            if(a.getNome().isEmpty())
+                a.setSemNome(++semNome);
             clientes.add(a);
         }
         return clientes;

@@ -1,12 +1,10 @@
 package com.example.exlistview.models;
 
-import com.example.exlistview.dao.ClienteDAO;
-
 public class Cliente {
     private Integer codigo;
     private String nome;
     private String email;
-
+    private int semNome;
     public Cliente(int codigo, String nome, String email) {
         this.codigo = codigo;
         this.nome = nome;
@@ -18,10 +16,8 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return
-                //"\nID:: " + (codigo == null ? " " : codigo) +
-                (nome.isEmpty() ? "SEM NOME("+ codigo +")" : nome.toUpperCase());
-                //"\n\tEmail: " + (email.isEmpty() ? "N/A" : email) + "\n";
+        // identificar se tem ou não nome definido
+        return (nome.isEmpty() ? "<SEM NOME("+ semNome +")>" : nome);
     }
 
     public Integer getCodigo() {
@@ -46,5 +42,13 @@ public class Cliente {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getSemNome() {
+        return semNome;
+    }
+
+    public void setSemNome(int semNome) {
+        this.semNome = semNome;
     }
 }
