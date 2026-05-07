@@ -4,7 +4,7 @@ public class Cliente {
     private Integer codigo;
     private String nome;
     private String email;
-    private int semNome;
+    private int numeroSemNome;
     public Cliente(int codigo, String nome, String email) {
         this.codigo = codigo;
         this.nome = nome;
@@ -18,10 +18,10 @@ public class Cliente {
     public String toString() {
         // identificar se tem ou não nome definido
         if(nome.isEmpty()){
-            if(semNome == 0)
+            if(numeroSemNome == 0)
                 return "SEM NOME"; // caso seja o primeiro/unico identificado sem nome
             // caso não seja o primeiro/unico sem nome identificadp
-            return "SEM NOME(" + semNome + ")";
+            return "SEM NOME(" + numeroSemNome + ")";
         }
         // caso tenha nome
         return nome;
@@ -51,11 +51,11 @@ public class Cliente {
         this.email = email;
     }
 
-    public int getSemNome() {
-        return semNome;
+    public int getNumeroSemNome() {
+        return numeroSemNome;
     }
 
-    public void setSemNome(int semNome) {
-        this.semNome = semNome;
+    public void setNumeroSemNome(int numeroSemNome) {
+        this.numeroSemNome = numeroSemNome;
     }
 }

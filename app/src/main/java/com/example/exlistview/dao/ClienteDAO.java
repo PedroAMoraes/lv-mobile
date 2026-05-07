@@ -58,7 +58,7 @@ public class ClienteDAO {
             a.setNome((cursor.getString(1)));
             a.setEmail((cursor.getString(2)));
             if(a.getNome().isEmpty())
-                a.setSemNome(semNome++);
+                a.setNumeroSemNome(semNome++);
             clientes.add(a);
         }
         return clientes;
